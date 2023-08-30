@@ -59,7 +59,9 @@ paper.onclick = () => handleSoundToggle();
 //Also log the files to the console
 console.group("Polyrithmic Key Files");
 const keys = colors.map((color, index) => {
-    const file = `./../assets/polyrithmic/wave-key-${index}.wav`;
+    
+    //*.wav files won't be referenced in page sources per chrome dev tools so we must use the raw repo url
+    const file = `https://github.com/IBXCODECAT/Nathan/raw/main/assets/polyrithmic/wave-key-${index}.wav`;
     console.log(file);
     const audio = new Audio(file);
   audio.volume = 0.15;
