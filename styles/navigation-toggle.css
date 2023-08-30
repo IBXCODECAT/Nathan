@@ -1,3 +1,7 @@
+:root {
+    --menu-toggle-distance: -70%;
+}
+
 main {
     background-image: url("./../assets/img/temp.jpg");
     background-position: center 0%;
@@ -60,7 +64,7 @@ body[data-nav="true"]>#nav-toggle>.close {
 }
 
 body[data-nav="true"]>main {
-    transform: translateY(-50%);
+    transform: translateY(var(--menu-toggle-distance));
 }
 
 main {
