@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="./styles/navigation-toggle.css">
     <link rel="stylesheet" href="./styles/polyrithmic.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
     <link rel="icon" href="./assets/pfp.gif" type="image/gif">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
 </head>
 
 <body data-nav="false">
@@ -20,44 +25,59 @@
     <div id="blob"></div>
     <div id="blob-blur"></div>
 
-    <!--Polyrithmic Simulation-->
-    <div id="control-bar-wrapper">
-        <div id="control-bar">
-            <button id="sound-toggle" class="toggle" type="button" data-toggled="false" onClick="handleSoundToggle()"
-                title="Toggle Pulse">
-                <i class="fa-solid fa-music-slash off"></i>
-                <i class="fa-solid fa-music on"></i>
-            </button>
+    <main>
+        <!--Polyrithmic Simulation-->
+        <div id="control-bar-wrapper">
+            <div id="control-bar">
+                <button id="sound-toggle" class="toggle" type="button" data-toggled="false"
+                    onClick="handleSoundToggle()" title="Toggle Pulse">
+                    <i class="fa-solid fa-music-slash off"></i>
+                    <i class="fa-solid fa-music on"></i>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <!--Logo Centralized in Polyrithmic Simulation-->
-    <div id="logo">
-        <img src="./assets/pfp.gif" alt="" />
-    </div>
+        <!--Logo Centralized in Polyrithmic Simulation-->
+        <div id="logo">
+            <img src="./assets/pfp.gif" alt="" />
+        </div>
 
-    <!--Sound Message-->
-    <div id="sound-message">
-        <p>Click anywhere to toggle sound</p>
-    </div>
+        <!--Sound Message-->
+        <div id="sound-message">
+            <p>Click anywhere to toggle sound</p>
+        </div>
 
-    
-    <h1 id="hacker-text" data-content="NATHAN SCHMITT">NATHAN SCHMITT</h1>
+        <h1 id="hacker-text" data-content="NATHAN SCHMITT">NATHAN SCHMITT</h1>
+
+        <!--Polyrighmic Simulation's Surface to Draw On-->
+        <canvas id="paper"></canvas>
+
+    </main>
+
+    <nav>
+
+    </nav>
 
     <!--Navigation Button-->
     <button id="nav-toggle" type="button" onclick="toggleNav()">
-        <i class="open fa-light fa-bars-staggered"></i>
-        <i class="close fa-light fa-xmark-large"></i>
+        <img class="open" src="./assets/svg/bars-staggered.svg"></i>
+        <img class="close" src="./assets/svg/xmark.svg"></i>
     </button>
-
-    <!--Polyrighmic Simulation's Surface to Draw On-->
-    <canvas id="paper"></canvas>
 
     <!--Scripts-->
     <script src="./scripts/blob.js"></script>
     <script src="./scripts/hacker-text.js"></script>
     <script src="./scripts/navigation-toggle.js"></script>
     <script src="./scripts/polyrithmic.js"></script>
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
+
+
+
+<footer>
+
+</footer>
 
 </html>
