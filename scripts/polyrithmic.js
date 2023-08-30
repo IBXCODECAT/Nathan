@@ -59,11 +59,19 @@ paper.onclick = () => handleSoundToggle();
 //Also log the files to the console
 console.group("Polyrithmic Key Files");
 const keys = colors.map((color, index) => {
-    const file = `./../assets/polyrithmic/wave-key-${index}.wav`;
-    console.log(file);
-    const audio = new Audio(file);
-  audio.volume = 0.15;
-  return audio;
+    try {
+        const file = `./../assets/polyrithmic/wave-key-${index}.wav`;
+        console.log(file);
+        const audio = new Audio(file);
+        audio.volume = 0.15;
+        return audio;
+    } catch (error) {
+        const file = `https://github.com/IBXCODECAT/Nathan/raw/main/assets/polyrithmic//wave-key-${index}.wav`;
+        console.log(file);
+        const audio = new Audio(file);
+        audio.volume = 0.15;
+        return audio;
+    }
 });
 console.groupEnd();
 
