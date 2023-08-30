@@ -15,8 +15,8 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    z-index: 2;
     backdrop-filter: blur(200px);
+    z-index: 2;
 }
 
 @keyframes rotate-blob {
