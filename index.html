@@ -9,12 +9,13 @@
 
     <link rel="stylesheet" href="./styles/blob.css">
     <link rel="stylesheet" href="./styles/hacker-text.css">
+    <link rel="stylesheet" href="./styles/navigation-toggle.css">
     <link rel="stylesheet" href="./styles/polyrithmic.css">
 
     <link rel="icon" href="./assets/pfp.gif" type="image/gif">
 </head>
 
-<body>
+<body data-nav="false">
     <!--Blob -->
     <div id="blob"></div>
     <div id="blob-blur"></div>
@@ -43,12 +44,19 @@
     
     <h1 id="hacker-text" data-content="NATHAN SCHMITT">NATHAN SCHMITT</h1>
 
+    <!--Navigation Button-->
+    <button id="nav-toggle" type="button" onclick="toggleNav()">
+        <i class="open fa-light fa-bars-staggered"></i>
+        <i class="close fa-light fa-xmark-large"></i>
+    </button>
+
     <!--Polyrighmic Simulation's Surface to Draw On-->
     <canvas id="paper"></canvas>
 
     <!--Scripts-->
     <script src="./scripts/blob.js"></script>
     <script src="./scripts/hacker-text.js"></script>
+    <script src="./scripts/navigation-toggle.js"></script>
     <script src="./scripts/polyrithmic.js"></script>
 </body>
 
