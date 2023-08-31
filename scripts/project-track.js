@@ -33,7 +33,14 @@ const handleOnMove = () => {
     //Move the elements to the new position
     track.animate({
         transform: `translate(${nextPercentage}%, -50%)`
-      }, { duration: 1200, fill: "forwards" });
+    }, { duration: 1200, fill: "forwards" });
+
+    //Create a paralax effect with the images
+    for (const image of track.getElementsByClassName("image")) {
+        image.animate({
+            objectPosition: `${100 + nextPercentage}% center`
+        }, { duration: 1200, fill: "forwards" });
+    }
 }
 
 //Listen for any mouse up event and reset the starting point for our invisible slider
