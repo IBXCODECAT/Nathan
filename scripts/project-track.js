@@ -37,13 +37,12 @@ const handleOnMove = () => {
 }
 
 //Listen for any mouse up event and reset the starting point for our invisible slider
-const handleOnUp = event => {
+const handleOnUp = () => {
     track.dataset.mouseDownAt = "0";
     track.dataset.prevPercentage = track.dataset.percentage | "0";
 }
 
-/* -- Had to add extra lines for touch events -- */
-
+/* -- Extra lines for touch events -- */
 window.onmousedown = event => handleOnDown(event);
 window.ontouchstart = event => handleOnDown(event.touches[0]);
 window.onmouseup = event => handleOnUp(event);
