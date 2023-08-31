@@ -1,12 +1,15 @@
 :root {
-    --g1: #0B75BC;
-    --g2: #0BCACA;
-    --g3: #0BCA75;
+    --g1: #0B75BCEE;
+    --g2: #0BCACAEE;
+    --g3: #0BCA75EE;
 
     --selected-highlight: #C1C1C1;
+
+    --inner-border-radius: 20px;
+    --selection-border-radius: 6px;
 }
 
-/* Project Track */
+/*Define the navigations space where we place the track*/
 nav.track-nav {
     height: 100vh;
     width: 100vh;
@@ -14,7 +17,7 @@ nav.track-nav {
     overflow: none;
 }
 
-/*Position our card track*/
+/*Define the track the cards will rest on*/
 div#image-track {
     position: absolute;
     display: flex;
@@ -23,7 +26,7 @@ div#image-track {
     top: 65%;
 }
 
-/*Size our card*/
+/*Define our cards*/
 div#image-track>.track-card {
     aspect-ratio: 1 / 1.3;
     position:relative;
@@ -31,40 +34,6 @@ div#image-track>.track-card {
 
     cursor: pointer;
     object-position: center;
-    border: #0BCA75 2px solid;
-}
-
-div#image-track>.track-card::before {
-    content: "";
-    height: 100%;
-    width: 100%;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-
-    background: linear-gradient(
-        130deg,
-        transparent 0%, 33%,
-        var(--g1) 66%,
-        var(--g2) 83.5%,
-        var(--g3) 100%
-    );
-
-    transition: background-position 350ms ease;
-    z-index: 1;
-    /*Shift the gradient off of the element entirely*/
-    background-size: 500%;
-    background-position: 0% 0%;
-
-}
-
-div#image-track>.track-card:hover::before {
-    transform: scale(1.05);
-    border:  4px solid;
-
-    background-position: 100%, 100%;
-
-    border: var(--selected-highlight) 1px solid;
 }
 
 /*Scale the image so it fits our card*/
@@ -74,21 +43,76 @@ div#image-track>.track-card>.track-image {
     object-fit: cover;
     object-position: center;
     display: relative;
+
+    border-radius: var(--inner-border-radius);
 }
 
-/*Scale the title so it fits our card and position the effect on top*/
-div#image-track>.track-card>.card-title {
+/*Define our cards' gradient effect*/
+div#image-track>.track-card::before {
+    /*Size and position our card*/
+    content: "";
+    height: 100%;
     width: 100%;
-    height: 20%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
 
-    padding: 0px;
-    margin: 0px;
+    /*Define the gradient effect*/
+    background: linear-gradient(
+        130deg,
+        transparent 0%, 33%,
+        var(--g1) 66%,
+        var(--g2) 83.5%,
+        var(--g3) 100%
+    );
+
+    /*Set the transition for the gradient*/
+    transition: background-position 400ms ease;
+
+    /*Set the layer for the gradient to be above card image*/
+    /*z-index: 1;*/
+
+    /*Shift the gradient off of the element entirely*/
+    background-size: 500%;
+    background-position: 0% 0%;
+
+}
+
+/*Trigger our cards' gradient effect when the card is hvoered*/
+div#image-track>.track-card:hover::before {
+    transform: scale(1.05);
+
+    background-position: 100%, 100%;
+
+    border: var(--selected-highlight) 1px solid;
+    border-radius: var(--selection-border-radius);
+}
+
+/*Define the dots overlay for our cards*/
+div#image-track>.track-card>.card-dots {
+    background: radial-gradient(
+        rgba(255, 255, 255, 0.4) 8%,
+        transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: 100%;
+    width: 100%;
 
     transform: translateY(-100%);
-    background-color: rgba(0, 0, 0, 0.5);
+
+    /*Set the transition for the dots*/
+    transition: background-position 400ms ease;
 }
 
-div#image-track>.track-card>.card-title>.card-title-text {
+/*Trigger our cards' dots overlay when the card is hovered*/
+div#image-track>.track-card:hover>.card-dots {
+    background-position: 110% 110%;
+    /*Set the layer for the dots to be above the gradient*/
+    z-index: 2;
+}
+
+div#image-track>.track-card>.card-dots>.card-title-text {
     width: 100%;
     height: 100%;
 
@@ -96,6 +120,8 @@ div#image-track>.track-card>.card-title>.card-title-text {
     justify-content: center;
     align-items: center;
 
-    font-size: 2.5vmin;
+    font-size: 3.5vmin;
     color: white;
+
+    z-index: 500;
 }
